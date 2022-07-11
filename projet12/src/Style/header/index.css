@@ -1,0 +1,50 @@
+.header {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.menutxt {
+  color: white;
+  font-size: 24px;
+}
+
+.Logotxt {
+  color: red;
+  font-size: 24px;
+}
+
+.LogoPtxt {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  max-height: 60px;
+}
+
+.Header_left {
+  background-color: black;
+  height: 1000px;
+  width: 117px;
+}
+
+.icons {
+  display: flex;
+  padding-top: 200px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.icons img {
+  margin-top: 25%;
+}
+
+.txt_header-left {
+  margin-top: 200px;
+  transform: rotate(-90deg);
+  color: white;
+  white-space: nowrap;
+}
