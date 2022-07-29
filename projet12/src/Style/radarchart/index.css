@@ -1,0 +1,9 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  color: white;
+}
+.container {
+  background-color: #282d30;
+  border-radius: 10px;
+}

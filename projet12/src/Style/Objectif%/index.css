@@ -1,0 +1,11 @@
+.container_objectif {
+  background-color: #fbfbfb;
+  width: 258px;
+  height: 263px;
+}
+
+.objectif_title {
+  margin-top: 24px;
+  margin-left: 20px;
+  color: black;
+}
