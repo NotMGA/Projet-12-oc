@@ -1,6 +1,4 @@
 import '../../Style/boxstats/index.css'
-import img1 from '../../Assets/prot.png'
-import Bdd from '../../bdd/index.js'
 function BoxStats(props) {
   return (
     <div className="container_box">

@@ -1,6 +1,6 @@
 .container_txt {
   margin-top: 5%;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .txt_l1 {
@@ -8,5 +8,6 @@
   margin-bottom: 2%;
 }
 
-.txt_l2 {
+.red {
+  color: red;
 }

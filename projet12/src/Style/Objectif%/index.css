@@ -9,3 +9,19 @@
   margin-left: 20px;
   color: black;
 }
+
+.txt-pourc {
+  position: relative;
+  z-index: 2;
+  bottom: 25%;
+  right: -32%;
+
+  width: 70px;
+  color: gray;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.margin_pourc {
+  padding-top: 10px;
+}

@@ -21,10 +21,26 @@ export default function App() {
 
   useEffect(() => {
     /**
-     * cette fonction permet de récurerer en faisans des apelles API, les différentes datas indispensables à l'affihage de la page.
+     * This function is use to get the data with API call
      */
     async function getData() {
       const data = await services.getActivityById(id)
+      /**
+       * Exemple data array =
+       *  {"data":{
+       *    "userId":12,
+       *    "sessions":[
+       *      {"day":"2020-07-01","kilogram":80,"calories":240},
+       *      {"day":"2020-07-02","kilogram":80,"calories":220},
+       *      {"day":"2020-07-03","kilogram":81,"calories":280},
+       *      {"day":"2020-07-04","kilogram":81,"calories":290},
+       *      {"day":"2020-07-05","kilogram":80,"calories":160},
+       *      {"day":"2020-07-06","kilogram":78,"calories":162},
+       *      {"day":"2020-07-07","kilogram":76,"calories":390}
+       *    ]
+       *   }
+       * }
+       */
 
       if (data !== undefined) {
         setActivity(data.sessions)
@@ -36,7 +52,7 @@ export default function App() {
   })
 
   return (
-    <div>
+    <div className="backgroud_daily">
       <label>Activité quotidienne</label>
       <BarChart
         width={900}
@@ -54,9 +70,18 @@ export default function App() {
         <YAxis
           axisLine={false}
           orientation="right"
+          yAxisId="right"
           type="number"
           domain={['dataMin - 1', 'dataMax + 1']}
           dataKey="kilogram"
+        />
+        <YAxis
+          axisLine={false}
+          yAxisId="left"
+          orientation="left"
+          type="number"
+          dataKey="calories"
+          display="none"
         />
         <Tooltip />
         <Legend
@@ -77,11 +102,13 @@ export default function App() {
         <Bar
           barSize={10}
           radius={[10, 10, 0, 0]}
+          yAxisId="right"
           dataKey="kilogram"
           fill="black"
         />
         <Bar
           barSize={10}
+          yAxisId="left"
           radius={[10, 10, 0, 0]}
           dataKey={'calories'}
           fill="red"

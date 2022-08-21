@@ -28,10 +28,23 @@ function Home() {
 
   useEffect(() => {
     /**
-     * cette fonction permet de récurerer en faisans des apelles API, les différentes datas indispensables à l'affihage de la page.
+     * This function is use to get the data with API call
      */
     async function getData() {
       const data = await services.getGeneralInfoById(id)
+      // array data exemple  = {
+      // "id":12,
+      // "userInfos":{
+      //   "firstName":"Karl",
+      //   "lastName":"Dovineau",
+      //   "age":31},"
+      //   todayScore":0.12,
+      //   "keyData":{
+      //     "calorieCount":1930,
+      //     "proteinCount":155,
+      //     "carbohydrateCount":290,
+      //     "lipidCount":50
+      //   }}
 
       if (data !== undefined) {
         setName(data.userInfos.firstName)
@@ -63,10 +76,14 @@ function Home() {
             </div>
           </div>
           <div>
-            <BoxStats img={calorie_img} stat={calories} label="Calories" />
-            <BoxStats img={prot_img} stat={proteines} label="Proteine" />
-            <BoxStats img={gluc_img} stat={glucides} label="Glucide" />
-            <BoxStats img={lip_img} stat={lipides} label="Lipide" />
+            <BoxStats
+              img={calorie_img}
+              stat={calories + 'kCal'}
+              label="Calories"
+            />
+            <BoxStats img={prot_img} stat={proteines + 'g'} label="Proteine" />
+            <BoxStats img={gluc_img} stat={glucides + 'g'} label="Glucide" />
+            <BoxStats img={lip_img} stat={lipides + 'g'} label="Lipide" />
           </div>
         </div>
       </div>

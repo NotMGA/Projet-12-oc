@@ -5,8 +5,8 @@ import { PieChart, Pie, Label, Cell } from 'recharts'
 
 function NormalPieChart(props) {
   const data = [
-    { name: 'Bubble Tea Sold', value: props.value * 100 },
-    { name: 'Bubble Tea Left', value: 100 - props.value * 100 },
+    { name: 'Done', value: props.value * 100 },
+    { name: 'Left', value: 100 - props.value * 100 },
   ]
 
   return (
@@ -39,15 +39,20 @@ function NormalPieChart(props) {
             position="center"
             fill="black"
             style={{
-              fontSize: '32px',
+              fontSize: '25px',
               fontWeight: 'bold',
-              fontFamily: 'Roboto',
             }}
           />
         </Pie>
       </PieChart>
+      <div className="txt-pourc">de vorte objectif</div>
     </div>
   )
 }
 
 export default NormalPieChart
+
+/**
+ * Represents a img and txt for calories , proteine , glucide, lipide.
+ * @param {string} value - Number of the obectif done  .
+ */

@@ -1,6 +1,6 @@
 import '../../Style/courbe_session/index.css'
 import React from 'react'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
+import { AreaChart, Area, XAxis, CartesianGrid, Tooltip } from 'recharts'
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Services } from '../../bdd'
@@ -14,11 +14,26 @@ export default function App() {
   let jours = ['L', 'M', 'M', 'J', 'V', 'S', 'D']
   useEffect(() => {
     /**
-     * cette fonction permet de récurerer en faisans des apelles API, les différentes datas indispensables à l'affihage de la page.
+     * This function is use to get the data with API call
      */
     async function getData() {
       const data = await services.getSessionById(id)
-
+      /**
+       * exemple data array =
+       * {"data":
+       *  {"userId":12,
+       *   "sessions":[
+       *     {"day":1,"sessionLength":30},
+       *     {"day":2,"sessionLength":23},
+       *     {"day":3,"sessionLength":45},
+       *     {"day":4,"sessionLength":50},
+       *     {"day":5,"sessionLength":0},
+       *     {"day":6,"sessionLength":0},
+       *     {"day":7,"sessionLength":60}
+       *    ]
+       *   }
+       *  }
+       */
       if (data !== undefined) {
         setTimedata(data.sessions)
         gettime()
@@ -30,6 +45,9 @@ export default function App() {
   })
 
   function gettime() {
+    /**
+     * This function is use to display the day insted of a number
+     */
     setTime(
       TimeDatas.map((Value, index) => {
         return {
@@ -51,39 +69,38 @@ export default function App() {
 
     return null
   }
-  console.log(TimeData)
   return (
     <div className="container_courbe">
       <div className="courbe_title">Durée moyenne des sessions</div>
       <AreaChart
-        width={300}
+        width={330}
         height={240}
         data={TimeData}
         name="test"
         margin={{
           top: 0,
-          right: 0,
-          left: 0,
+          right: 10,
+          left: 10,
           bottom: 0,
         }}
       >
         <CartesianGrid stroke="0" fill="red" />
-        <XAxis interval={0} dataKey="Day" />
+        <XAxis
+          interval={0}
+          dataKey="Day"
+          axisLine={false}
+          tickLine={false}
+          stroke="white"
+        />
         <Tooltip content={<CustomTooltip />} />
         <Area
           type="monotone"
           dataKey="sessionLength"
-          stroke="red"
-          fill="#F69C9C"
+          stroke="white"
+          // fill="#F69C9C"
+          fill="red"
         />
       </AreaChart>
     </div>
   )
 }
-
-/**
- * Represents a img and txt for calories , proteine , glucide, lipide.
- * @param {string} img - The image of the stat.
- * @param {string} stat - The stat of the user.
- * @param {string} label - The name of the stat.
- */

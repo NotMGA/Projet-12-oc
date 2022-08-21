@@ -4,8 +4,12 @@
 
 .container_session_sport {
   display: flex;
+  justify-content: space-between;
+  width: 110%;
 }
 
 .container_1 {
   display: flex;
+  justify-content: space-between;
+  margin-right: 4%;
 }

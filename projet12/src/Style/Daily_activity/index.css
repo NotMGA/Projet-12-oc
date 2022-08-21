@@ -1,3 +1,8 @@
 .text-color-class {
   color: black;
 }
+
+.backgroud_daily {
+  background-color: #fbfbfb;
+  margin-bottom: 3%;
+}
